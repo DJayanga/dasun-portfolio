@@ -114,7 +114,11 @@ export default function App() {
             <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
-            <a className="cv-btn" href="/Dasun_Jayanga_CV.pdf" download>
+            <a
+              className="cv-btn"
+              href={`${import.meta.env.BASE_URL}Dasun_Jayanga_Resume_SSE.pdf`}
+              download
+            >
               Download CV
             </a>
           </div>
