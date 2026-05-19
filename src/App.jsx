@@ -8,6 +8,8 @@ import {
   Code2,
   Layers,
   GraduationCap,
+  Menu,
+  X,
 } from "lucide-react";
 import profileImage from "./assets/profile.jpeg";
 import "./index.css";
@@ -80,6 +82,7 @@ const experiences = [
 export default function App() {
 
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,21 +101,23 @@ export default function App() {
     <main className="portfolio">
       <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
         <div className="nav-inner">
-
           <a href="#" className="logo">
             Dasun Jayanga
           </a>
 
-          <div>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <div className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
+            <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
+            <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
             <a className="cv-btn" href="/Dasun_Jayanga_CV.pdf" download>
               Download CV
             </a>
           </div>
-
         </div>
       </nav>
 
